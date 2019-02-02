@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://isjinhao.github.io/"/>
-  <updated>2019-02-01T10:43:38.304Z</updated>
+  <updated>2019-02-02T01:31:36.024Z</updated>
   <id>https://isjinhao.github.io/</id>
   
   <author>
@@ -17,19 +17,86 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>aa</title>
+    <link href="https://isjinhao.github.io/2019/02/02/aa/"/>
+    <id>https://isjinhao.github.io/2019/02/02/aa/</id>
+    <published>2019-02-02T01:22:09.000Z</published>
+    <updated>2019-02-02T01:31:36.024Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --><p>$\frac{aaa}{bbb}$</p><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;$\frac{aaa}{bbb}$&lt;/p&gt;&lt;!-- rebuild by neat --&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>01-操作系统引论</title>
+    <link href="https://isjinhao.github.io/2019/02/02/01-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/"/>
+    <id>https://isjinhao.github.io/2019/02/02/01-操作系统引论/</id>
+    <published>2019-02-02T01:22:09.000Z</published>
+    <updated>2019-02-02T02:18:10.970Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --><h2 id="操作系统的定义"><a href="#操作系统的定义" class="headerlink" title="操作系统的定义"></a>操作系统的定义</h2><p>操作系统（Operating System，简称OS）是配置在计算机硬件上的第一层软件，是对硬件系统的首次扩充。主要作用是管理硬件设备来提高利用率和吞吐量，同时为用户和应用系统提供易于使用的接口。</p><ul><li><p>提高利用率：使系统中各设备的空闲时间尽可能短。</p></li><li><p>提高吞吐量：使单位时间内完成的业务更多。</p></li><li><p>提供易于使用的接口：即是方便使用计算机资源。例如没有操作系统，操纵计算机可能需要用户输入二进制代码，有了操作系统，用户可以点击图标，操作系统就会将其转换成二进制代码。</p></li></ul><h2 id="操作系统的目标"><a href="#操作系统的目标" class="headerlink" title="操作系统的目标"></a>操作系统的目标</h2><ul><li><p>方便性：即对用户和应用程序提供易于使用的接口。</p></li><li><p>有效性：提高利用率和吞吐量。</p></li><li><p>可扩充性：计算机硬件和体系结构等都在不断发展中，OS需要有好的可扩充性来满足不断发展的需求。</p></li><li><p>开放性：为了使计算机的应用环境从单机转换成网络，OS需要满足相应的软硬件标准来实现设备的互联。</p></li></ul><h2 id="操作系统的作用"><a href="#操作系统的作用" class="headerlink" title="操作系统的作用"></a>操作系统的作用</h2><ul><li><p>提供易于使用的接口，如Shell、图形界面等。</p></li><li><p>管理计算机所有的资源，负责计算机系统全部资源的分配、控制、调度和回收。</p></li><li><p>隐蔽硬件特性，如计算2*3，某些机器的实现是使用加法器做2+2+2，而有的机器是乘法器实现2*3。操作系统屏蔽这些细节，用户只需要输入2*3就能完成。</p></li></ul><h2 id="未配置操作系统的计算机系统"><a href="#未配置操作系统的计算机系统" class="headerlink" title="未配置操作系统的计算机系统"></a>未配置操作系统的计算机系统</h2><ul><li><p>人工操作：程序员把程序和数据通过穿孔的方式记录在纸带上，再启动机器读入纸带，运行完成并取走计算结果后，才允许下一个用户上机。缺点：</p><ul><li>用户独占整机：计算机上的资源为上机用户独占。</li><li>设备空闲率高：用户装卡，卸卡等人工操作时，设备资源是空闲的。</li></ul></li><li><p>脱机输入/输出（Off-Line I/O）：为了解决人机矛盾及CPU、I/O等设备之间速度的不匹配。它是先把纸带通过输入设备在外围机（与主机相比处于次要地位的计算机）的控制下输入到磁带上，当CPU需要这些信息时再从磁带上高速地调取。类似的，在输出时把信息输出到磁盘中，在外围机的控制下通过输出设备输出。也就是说主机直接对磁盘进行操作，输入输出和程序运行脱离。</p><ul><li>減少了CPU的空闲时间：主机不必依赖输入输出，可以从磁盘中读取数据。</li><li>提升了I/O速度：主机读取信息不再是从卡片中读取，从磁盘读取速度较快。</li></ul><p><img src="/2019/02/02/01-操作系统引论/脱机输入输出.jpg" alt=""></p></li></ul><h2 id="批处理系统"><a href="#批处理系统" class="headerlink" title="批处理系统"></a>批处理系统</h2><p>为了提升计算机资源的利用率和提升计算机的吞吐量研发出了批操作系统。</p><h4 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h4><ul><li>作业：程序+数据+作业说明书（系统根据说明书来对程序的运行进行控制）。</li><li><p>周转时间：从作业进入系统到作业完成退出系统所用的时间。</p></li><li><p>平均周转时间：同时参与系统运行的几个作业的周转时间的平均值。$T=\frac{1}{n}[\sum_{i=1}^NT_i]​$</p></li><li>带权周转时间：作业的周转时间（$T​$）和系统为它提供服务的时间（$T_S​$）。$W=\frac{T}{T_s}​$</li><li>平均带权周转时间：同时参与系统运行的几个作业的带权周转时间的平均值。$T=\frac{1}{n}[\sum_{i=1}^NW_i]​$</li></ul><h4 id="单道批处理系统"><a href="#单道批处理系统" class="headerlink" title="单道批处理系统"></a>单道批处理系统</h4><p>设计一个常驻内存的程序（监督程序），操作员有选择地把若干作业合成一批，安装输入设备上，并启动监督程序，然后由监督程序自动控制这批作业运行，从而减少部分人工干预，有效地缩短了作业运行前的准备时间，相对的提高CPU的利用率。同一时刻只有一个硬件在运行。特点：自动性、顺序性、单道性。缺点：</p><ul><li><p>I/O的慢速与CPU 的高速不匹配，且输入时需要CPU等待。</p></li><li><p>用户交互性差。作业安装输入后，就不能再交互。</p></li></ul><p><img src="/2019/02/02/01-操作系统引论/单道批处理系统.jpg" alt=""></p><h4 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h4><p>把一个以上的作业存放在主存中，并且同时处于运行状态，使这些作业共享处理机和外部设备等其它系统资源。对于一个单处理机系统来说，作业同时处于运行状态只是宏观的概念，其含义是指每个作业都已开始运行，但尚未完成。就微观而言，在任意特定时刻，处理机上运行的作业只有一个。特点：多道性、无序性、调度性。优缺点：</p><ul><li><p>优点：资源利用率高、系统吞吐量大。</p></li><li><p>缺点：作业仍然要排队处理，所以平均周转时间长、无交互能力。</p></li></ul><p>此时如何调度程序已经不是再用一张简单的流程图能说明了，<a href="02-进程&amp;线程.md">第二章</a>会有介绍。下图只是说明处理器利用率高。</p><p><img src="/2019/02/02/01-操作系统引论/多道批处理.jpg" alt=""></p><h4 id="举例证明资源利用率高和系统吞吐量大："><a href="#举例证明资源利用率高和系统吞吐量大：" class="headerlink" title="举例证明资源利用率高和系统吞吐量大："></a>举例证明资源利用率高和系统吞吐量大：</h4><p>设内存中有三道程序 A、B、C，它们的计算和I/O操作的时间如下表所示：</p><div class="table-container"><table><thead><tr><th style="text-align:center">程序操作</th><th style="text-align:center">A</th><th style="text-align:center">B</th><th style="text-align:center">C</th></tr></thead><tbody><tr><td style="text-align:center">计算</td><td style="text-align:center">30</td><td style="text-align:center">60</td><td style="text-align:center">20</td></tr><tr><td style="text-align:center">I/O</td><td style="text-align:center">40</td><td style="text-align:center">30</td><td style="text-align:center">40</td></tr><tr><td style="text-align:center">计算</td><td style="text-align:center">10</td><td style="text-align:center">10</td><td style="text-align:center">20</td></tr></tbody></table></div><ul><li>单道</li></ul><p><img src="/2019/02/02/01-操作系统引论/单道举例.jpg" width="100%"></p><ul><li>多道</li></ul><p><img src="/2019/02/02/01-操作系统引论/多道举例.jpg" width="100%"></p><h2 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h2><p>批处理系统中，作业一旦提交就不能进行更改，所以人机交互性很差。为了满足人机交互的需求诞生分时系统。每一个用户通过一台终端与计算机相连，以交互式的命令使用系统，采用分享CPU的方法，由于CPU的速度比人在终端输入指令的时间快得多，所以用户感到自己独占了整个计算机系统。系统规定一个称之为“时间片”的时间单位，所有终端用户轮流享用一个时间片的CPU。需要解决的问题：</p><ul><li><p>及时接受：所有终端用户输入的信息都要能够被及时的送到处理器上。所以主机会以很快的速度循环扫描各个终端。每个终端也要拥有缓存区来保存输入的信息。</p></li><li><p>及时处理：用户需要能对自己的作业及其允许及时地实施控制。所以所有的作业必须驻留在内存中，因此批作业系统不能被使用。它采用的方式是：作业直接进入内存。但每个用户只连续使用一个“时间片”的时间，对所有用户进行循环。这样每个用户都能及时地与自己的作业进行交互。</p></li></ul><p><img src="/2019/02/02/01-操作系统引论/分时系统.jpg" alt=""></p><h4 id="分时系统与多道批处理系统的不同特性："><a href="#分时系统与多道批处理系统的不同特性：" class="headerlink" title="分时系统与多道批处理系统的不同特性："></a>分时系统与多道批处理系统的不同特性：</h4><ul><li><p>多路性：允许多个用户共享一台计算机，提高资源利用率。</p></li><li><p>独立性：每个用户之间互不干扰，感觉就是一个人在独占一台计算机。</p></li><li><p>及时性：用户的请求能在很短的时间内得到回应。</p></li><li><p>交互性：用户可以通过终端和计算机进行及时交互。</p></li></ul><h2 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h2><p>指系统能及时响应外部事件的请求，在规定的时间内完成对该事件的处理，并控制所有实时任务协调一致地运行。实时系统强调程序运行的时间，它需对接收到的某些信号做出及时地反应。大多数的实时系统是专用系统，如：工业（武器）控制系统、信息查询系统、多媒体系统、嵌入式系统等。最大的特点就是可靠性：系统必须高度可靠，因为任何可能的差错都可能带来灾难性后果，所以系统一般都有多级容错措施。</p><ul><li><p>按是否周期执行分类：</p><ul><li>周期性实时任务：如外部设备周期性地发出状态信号给计算机使其状态能被实时感知。</li><li>非周期性实时任务：提交给系统时需要指定开始截止时间和完成截止时间。</li></ul></li><li><p>硬实时任务&amp;软实时任务：</p><ul><li>硬实时任务（Hard Real-time Task）：截止时间到达时任务必须完成，比如武器控制系统。</li><li>软实时任务（Soft Real-time Task）：截止时间到达时任务没有完成没有太大影响，比如多媒体系统。</li></ul></li></ul><h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><ul><li><p>进程：在系统中能独立运行并作为资源分配的基本单位。</p></li><li><p>线程：独立运行的基本单位，比进程更小，基本上不拥有系统资源。通常在一个进程中包含了若干个线程。</p></li></ul><h2 id="操作系统的基本特性"><a href="#操作系统的基本特性" class="headerlink" title="操作系统的基本特性"></a>操作系统的基本特性</h2><ul><li><p>并发：宏观上是多个进程同时运行，微观上是每一时刻只有一道进程在执行。</p></li><li><p>共享：系统中的资源可供内存中多个并发执行的进程（线程）共同使用。有两种共享方式：</p><ul><li>互斥共享方式，如打印机；</li><li>同时访问方式，如共享文件夹、网络资源。</li></ul></li><li><p>虚拟：通过某种技术把一个物理实体变为若干个逻辑上的对应物。这样可以避免一个进程单独占用某个物理设备，一个物理设备被分配给多个进程便可以提升物理设备的使用率。</p></li><li><p>不确定性（异步性）：进程以人们不可预知的速度向前推进，即为进程的不确定性。这样的话很可能是先进入内存的作业后完成；而后进入内存的作业先完成。尽管如此，但只要有合理的进程同步方式且运行环境相同，作业经多次运行，都会获得完全相同的结果。因此，异步运行方式是允许的。</p></li></ul><h2 id="操作系统的结构"><a href="#操作系统的结构" class="headerlink" title="操作系统的结构"></a>操作系统的结构</h2><h4 id="无结构操作系统"><a href="#无结构操作系统" class="headerlink" title="无结构操作系统"></a>无结构操作系统</h4><h4><a href="#" class="headerlink"></a></h4><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --&gt;&lt;h2 id=&quot;操作系统的定义&quot;&gt;&lt;a href=&quot;#操作系统的定义&quot; class=&quot;headerlink&quot; title=&quot;操作系统的定义&quot;&gt;&lt;/a&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>搭建博客</title>
+    <link href="https://isjinhao.github.io/2019/02/02/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://isjinhao.github.io/2019/02/02/搭建博客/</id>
+    <published>2019-02-02T00:47:04.000Z</published>
+    <updated>2019-02-02T00:48:14.793Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --><p>阿斯达阿斯达大多撒奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥</p><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;阿斯达阿斯达大多撒奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥奥&lt;/p&gt;&lt;!-- rebuild by nea
+      
+    
+    </summary>
+    
+      <category term="搭建博客" scheme="https://isjinhao.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="搭建博客" scheme="https://isjinhao.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://isjinhao.github.io/2019/02/01/hello-world/"/>
     <id>https://isjinhao.github.io/2019/02/01/hello-world/</id>
     <published>2019-02-01T10:43:38.304Z</published>
     <updated>2019-02-01T10:43:38.304Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p><!-- rebuild by neat -->]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;!-- build time:Sat Feb 02 2019 10:19:09 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hex
       
     
     </summary>
