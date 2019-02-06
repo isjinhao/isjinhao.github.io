@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[[object Object]]]></title>
+    <title><![CDATA[MySQL环境安装]]></title>
     <url>%2F2019%2F02%2F06%2F02-MySQL%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[安装MySQLMySQL有两种安装方式，解压配置和安装程序安装。在这使用解压配置但是资源里有使用安装程序安装的教程。解压至指定目录解压至自己选定的目录，一般不选择系统盘。我是解压至D盘根目录：D:\mysql-5.5\。写配置文件123456789#设置字符集为utf8 character-set-server = utf8basedir = D:/mysql-5.5 #指定为自己选定的目录datadir = D:/mysql-5.5/data #指定为选定目录下的data文件夹[client] #设置客户端字符集default-character-set = utf8[WinMySQLadmin] Server = D:/mysql-5.5/bin/mysqld.exe #指定至mysqld.exe文件配置环境变量安装和配置在管理员下的cmd命令下进入%MYSQL_HOME%/bin目录执行mysqld -install。如果想要卸载服务执行命令mysqld -remove。启动服务net start mysql第一次进入mysql -u root。mysql&gt; update mysql.user set password=PASSWORD(‘root’) where User=’root’;mysql&gt; flush privileges;后续进入mysql -u username -p按提示输入密码退出exit停止服务net stop mysql查看编码集mysql&gt; show variables like ‘%char%’;1234567891011121314mysql&gt; show variables like &apos;%char%&apos;;+--------------------------+------------------------------+| Variable_name | Value |+--------------------------+------------------------------+| character_set_client | utf8 || character_set_connection | utf8 || character_set_database | utf8 || character_set_filesystem | binary || character_set_results | utf8 || character_set_server | utf8 || character_set_system | utf8 || character_sets_dir | D:\mysql-5.5\share\charsets\ |+--------------------------+------------------------------+8 rows in set (0.01 sec)编码集如图上表示编码集配置正确。安装SQLyogSQLyog是一个可视化操作数据库工具。解压后就可使用：点击SQLyog.exe连接数据库使用]]></content>
       <categories>
