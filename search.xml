@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[基于Face++人脸识别系统项目结构]]></title>
+    <url>%2F2019%2F%E5%9F%BA%E4%BA%8EFacepp%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[要求AngularJS+Bootstrap3+SSM+Opencv+Face++开发一套人脸签到系统，使用电脑摄像头获取人脸并进行签到。识别方式验证方式：人脸图片+保存人脸至服务器+到场离场时间。到场离场时间：第一次截取到的人脸是到场，最后一次截取到的人脸是离场。人脸图片、保存至服务器：使用Opencv 识别图片中的人脸得到所有的Rect，一个人脸在图片中的位置会储存在一个Rect（x轴、y轴、width、height）对象中。然后循环以下做法：剪切出每个Rect在图片中对应的子图片，调用Face++的接口搜索与子图片最相近的一个人，如果最相近的人置信度 &gt;= 80，认为是同一个人，复制一份原图片，然后把Rect对应的位置画上框，保存在指定文件夹（每个活动有唯一的存储文件夹）下，如果置信度 &lt; 80，处理下一个Rect。上传方式：客户端一秒截一张图上传。实体 &amp; 表结构组织创建活动，学生参与活动。活动分为两种，使用组的和不使用组的。使用组的应用场景是教学班签到，教学班的人数是固定的，不属于教学班的人即使识别成功也不算为签到。不使用组的应用场景是社团活动签到，只要识别成功，就算为签到。组织功能组织注册发布活动查看组信息查看举办的活动信息：查看每场活动用户：录入和导出记录签到用户用户注册###用户查看签到用户查看组管理员]]></content>
+      <categories>
+        <category>大学生创新创业项目</category>
+      </categories>
+      <tags>
+        <tag>SSM</tag>
+        <tag>Face++</tag>
+        <tag>Opencv</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[markdown数学公式]]></title>
     <url>%2F2019%2Fmarkdown%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[符号代码符号代码$\sum$\sum$\sum_{i=0}^n$\sum_{i=0}^n$\pm$\pm$\div$\div$\cdot$\cdot$\times$\times$\mid$\mid$\circ$\circ$\ast$\ast$\bigotimes$\bigotimes$\bigoplus$\bigoplus$\leq$\leq$\geq$\geq$\neq$\neq$\approx$\approx$\prod$\prod$\coprod$\coprod$\cdots$\cdots$\int$\int$\iint$\iint$\oint$\oint$\infty$\infty$\nabla$\nabla$\because$\because$\therefore$\therefore$\forall$\forall$\exists$\exists$\not=$\not=$\not&gt;$\not&gt;$\leq$\leq$\geq$\geq$\not\subset$\not\subset$\emptyset$\emptyset$\in$\in$\notin$\notin$\subset$\subset$\subseteq$\subseteq$\bigcup$\bigcup$\bigcap$\bigcap$\bigvee$\bigvee$\bigwedge$\bigwedge$\biguplus$\biguplus$\bigsqcup$\bigsqcup$\hat{y}$\hat{y}$\check{y}$\check{y}$\breve{y}$\breve{y}$\overline{a+b+c+d}$\overline{a+b+c+d}$\underline{a+b+c+d}$\underline{a+b+c+d}$\overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}$\overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}$\uparrow$\uparrow$\downarrow$\downarrow$\Uparrow$\Uparrow$\Downarrow$\Downarrow$\rightarrow$\rightarrow$\leftarrow$\leftarrow$\Rightarrow$\Rightarrow$\Longleftarrow$\Longleftarrow$\longleftarrow$\longleftarrow$\longrightarrow$\longrightarrow$\Longrightarrow$\Longrightarrow$\alpha$\alpha$\beta$\beta$\gamma$\gamma$\Gamma$\Gamma$\delta$\delta$\Delta$\Delta$\epsilon$\epsilon$\varepsilon$\varepsilon$\zeta$\zeta$\eta$\eta$\theta$\theta$\Theta$\Theta$\vartheta$\vartheta$\iota$\iota$\pi$\pi$\phi$\phi$\Phi$\Phi$\psi$\psi$\Psi$\Psi$\omega$\omega$\Omega$\Omega$\chi$\chi$\rho$\rho$\omicron$\omicron$\sigma$\sigma$\Sigma$\Sigma$\nu$\nu$\xi$\xi$\tau$\tau$\lambda$\lambda$\Lambda$\Lambda$\mu$\mu$\partial$\partial$\lbrace$\lbrace$\rbrace$\rbrace$\overline{a}$\overline{a}$\frac{7x+5}{1+y^2}$\frac{7x+5}{1+y^2}$\int ^2_3 x^2 {\rm d}x$\int ^2_3 x^2 {\rm d}x$\sqrt[n]{3}$\sqrt[n]{3}$\vec{a} \cdot \vec{b}=0$\vec{a} \cdot \vec{b}=0$\iiint$\iiint$\oint$\oint$\lim$\lim$\infty$\infty$\partial$\partial$\ln15$\ln15$\log_2^{10}$\log_2^{10}]]></content>
