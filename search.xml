@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[二叉搜索树基础]]></title>
+    <url>%2F2019%2F%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[定义对任何节点$x$，其左子树中的关键字最大不超过$x.key$，其右子树中的关键字最小不低于$x.key$。性质中序遍历得到的结点是非降序排序。递归根节点的左子树得到树中最小元素，递归根节点的右子树得到树中最大元素。算法查找$x$是根节点，$k$是待查找关键字，查找的到则返回相应节点，查找不到返回空。后继$x$是待查找结点，右子树不为空，右子树的最小值所在的节点是后继。右子树为空，]]></content>
+      <categories>
+        <category>DSA</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>DSA</tag>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo上传图片]]></title>
     <url>%2F2019%2FHexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%2F</url>
     <content type="text"><![CDATA[步骤找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true。在博客根目录下执行一个下载上传图片插件的命令npm install hexo-asset-image --save。插件地址：https://github.com/dangxuandev/hexo-asset-image之后再使用hexo new xxx就会在_post目录下生成xxx.md文件和xxx目录。在xxx.md文件中要插入图片时，先要把所要插入的图片放在生成的同名文件夹下。利用markdown的语法将文件引入文章中。提交到github上时就可以有图片了。Bug修复插件有一个bug，使用时可能会出现如下问题：12345678910111213141516171819202122TypeError: Cannot read property &apos;replace&apos; of undefinedat Object. (D:\blog\isjinhao\node_modules\hexo-asset-image\index.js:31:38)at initialize.exports.each (D:\blog\isjinhao\node_modules\hexo-asset-image\node_modules\cheerio\lib\api\traversing.js:293:24)at Hexo. (D:\blog\isjinhao\node_modules\hexo-asset-image\index.js:29:16)at Hexo.tryCatcher (D:\blog\isjinhao\node_modules\bluebird\js\release\util.js:16:23)at Hexo. (D:\blog\isjinhao\node_modules\bluebird\js\release\method.js:15:34)at Promise.each.filter (D:\blog\isjinhao\node_modules\hexo\lib\extend\filter.js:63:65)at tryCatcher (D:\blog\isjinhao\node_modules\bluebird\js\release\util.js:16:23)at Object.gotValue (D:\blog\isjinhao\node_modules\bluebird\js\release\reduce.js:155:18)at Object.gotAccum (D:\blog\isjinhao\node_modules\bluebird\js\release\reduce.js:144:25)at Object.tryCatcher (D:\blog\isjinhao\node_modules\bluebird\js\release\util.js:16:23)at Promise._settlePromiseFromHandler (D:\blog\isjinhao\node_modules\bluebird\js\release\promise.js:512:31)at Promise._settlePromise (D:\blog\isjinhao\node_modules\bluebird\js\release\promise.js:569:18)at Promise._settlePromise0 (D:\blog\isjinhao\node_modules\bluebird\js\release\promise.js:614:10)at Promise._settlePromises (D:\blog\isjinhao\node_modules\bluebird\js\release\promise.js:694:18)at _drainQueueStep (D:\blog\isjinhao\node_modules\bluebird\js\release\async.js:138:12)at _drainQueue (D:\blog\isjinhao\node_modules\bluebird\js\release\async.js:131:9)at Async._drainQueues (D:\blog\isjinhao\node_modules\bluebird\js\release\async.js:147:5)at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\isjinhao\node_modules\bluebird\js\release\async.js:17:14)at runCallback (timers.js:705:18)at tryOnImmediate (timers.js:676:5)at processImmediate (timers.js:658:5)这是插件的index.js文件中存在bug，把node_modules/hexo-asset-image/index.js的内容修改为：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061'use strict';var cheerio = require('cheerio');// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-stringfunction getPosition(str, m, i) &#123; return str.split(m, i).join(m).length;&#125;var version = String(hexo.version).split('.');hexo.extend.filter.register('after_post_render', function(data)&#123; var config = hexo.config; if(config.post_asset_folder)&#123; var link = data.permalink; if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3) var beginPos = getPosition(link, '/', 1) + 1; else var beginPos = getPosition(link, '/', 3) + 1; // In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html". var endPos = link.lastIndexOf('/') + 1; link = link.substring(beginPos, endPos); var toprocess = ['excerpt', 'more', 'content']; for(var i = 0; i &lt; toprocess.length; i++)&#123; var key = toprocess[i]; var $ = cheerio.load(data[key], &#123; ignoreWhitespace: false, xmlMode: false, lowerCaseTags: false, decodeEntities: false &#125;); $('img').each(function()&#123; if ($(this).attr('src'))&#123; // For windows style path, we replace '\' to '/'. var src = $(this).attr('src').replace('\\', '/'); if(!/http[s]*.*|\/\/.*/.test(src) &amp;&amp; !/^\s*\//.test(src)) &#123; // For "about" page, the first part of "src" can't be removed. // In addition, to support multi-level local directory. var linkArray = link.split('/').filter(function(elem)&#123; return elem != ''; &#125;); var srcArray = src.split('/').filter(function(elem)&#123; return elem != '' &amp;&amp; elem != '.'; &#125;); if(srcArray.length &gt; 1) srcArray.shift(); src = srcArray.join('/'); $(this).attr('src', config.root + link + src); console.info&amp;&amp;console.info("update link as:--&gt;"+config.root + link + src); &#125; &#125;else&#123; console.info&amp;&amp;console.info("no src attr, skipped..."); console.info&amp;&amp;console.info($(this)); &#125; &#125;); data[key] = $.html(); &#125; &#125;&#125;);]]></content>
@@ -330,6 +343,7 @@
         <category>DSA</category>
       </categories>
       <tags>
+        <tag>数据结构</tag>
         <tag>DSA</tag>
         <tag>树</tag>
       </tags>
