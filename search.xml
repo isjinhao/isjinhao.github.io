@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java-WindowBuilder]]></title>
+    <url>%2F2019%2FJava-WindowBuilder%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Java-Swing]]></title>
+    <url>%2F2019%2FJava-Swing%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Spring的AOP和事务管理]]></title>
     <url>%2F2019%2FSpring%E7%9A%84AOP%E5%92%8C%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -66,7 +76,7 @@
   <entry>
     <title><![CDATA[centos7软件安装和JavaWeb环境搭建]]></title>
     <url>%2F2019%2Fcentos7%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8CJavaWeb%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[由于Linux各发行版对软件安装工具的不同支持，导致Linux软件安装是相对很麻烦的事情，由于本人目前只使用过Centos7，所以借着搭建JavaWeb开发环境把Centos7的软件安装总结一下。不过在这之前需要先了解一下wget。wget下载单个文件wget url。如wget www.baidu.com，得到百度站点的首页html文件。下载并改变文件名选项：-O。后台下载选项：-b。应用于下载文件非常大的时候。断点续传选项：-c。对于我们下载大文件时突然由于网络等原因中断非常有帮助，我们可以继续接着下载而不是重新下载一个文件。限速下载选项：--limit。如wget --limit-rate=30k www.baidu.com。下载多个文件选项：-i。首先，保存一份下载链接文件。但是在文件中需要完整的路径名，比如不能直接使用www.baidu.com，需要使用https://www.baidu.com。如以下是文件urls中的两个url。下载时使用wget -i urls即可。更多参考https://www.cnblogs.com/semonxv/p/3816366.html源码包解压即用源码包解压即用是最简单的一种方式。如安装tomcat的时候，我们先获得压缩包：wget https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz解压：tar -zxvf apache-tomcat-8.5.39.tar.gz然后进入apache-tomcat-8.5.39\bin\运行startup.sh就可以使用。源码包解压配置环境变量刚才不需要配置环境变量是因为，我们在运行war包的时候可以将包放入webapps中，在运行bin目录下的startup.sh。如果我们想一个软件在任何位置都能运行就需要配置环境变量，比如jdk。获得jdk的安装包不能再使用官网上的url并执行wget url来获取，因为oracle的官方网站有限制。所以我们需要先下载jdk，再上传到服务器上。上传服务器之后解压即可。Linux配置环境变量时就是修改/etc/profile文件。12export JAVA_HOME=/usr/develop/jdk1.8.0_201export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATHmake安装解压执行“./configure”命令为编译做好准备；执行“make”命令进行软件编译；执行“make install”完成安装；执行“make clean”删除安装时产生的临时文件。Cmake安装CMake是一种跨平台编译工具，比make更为高级，使用起来要方便得多。CMake主要是编写CMakeLists.txt文件，然后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库（so，shared object）。因此CMake的编译基本就两个步骤：cmakemakecmake 指向CMakeLists.txt所在的目录，例如cmake .. 表示CMakeLists.txt在当前目录的上一级目录。cmake后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个新的目录，专门用来编译，例如12345mkdir buildcd buildcmake ..//等cmake结束makemake根据生成makefile文件，编译程序。rpmrpm是由红帽公司开发的软件包管理方式，使用rpm我们可以方便的进行软件的安装、查询、卸载、升级等工作。但是rpm软件包之间的依赖性问题往往会很繁琐，尤其是软件由多个rpm包组成时。一般过程：找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；打开一个终端，su 成root用户；cd soft.version.rpm所在的目录；输入rpm -ivh soft.version.rpmYumYum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。]]></content>
+    <content type="text"><![CDATA[由于Linux各发行版对软件安装工具的不同支持，导致Linux软件安装是相对很麻烦的事情，由于本人目前只使用过Centos7，所以借着搭建JavaWeb开发环境把Centos7的软件安装总结一下。不过在这之前需要先了解一下wget。wget下载单个文件wget url。如wget www.baidu.com，得到百度站点的首页html文件。下载并改变文件名选项：-O。后台下载选项：-b。应用于下载文件非常大的时候。断点续传选项：-c。对于我们下载大文件时突然由于网络等原因中断非常有帮助，我们可以继续接着下载而不是重新下载一个文件。限速下载选项：--limit。如wget --limit-rate=30k www.baidu.com。下载多个文件选项：-i。首先，保存一份下载链接文件。但是在文件中需要完整的路径名，比如不能直接使用www.baidu.com，需要使用https://www.baidu.com。如以下是文件urls中的两个url。下载时使用wget -i urls即可。更多参考https://www.cnblogs.com/semonxv/p/3816366.html源码包解压即用源码包解压即用是最简单的一种方式。如安装tomcat的时候，我们先获得压缩包：wget https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz解压：tar -zxvf apache-tomcat-8.5.39.tar.gz然后进入apache-tomcat-8.5.39\bin\运行startup.sh就可以使用。源码包解压配置环境变量刚才不需要配置环境变量是因为，我们在运行war包的时候可以将包放入webapps中，在运行bin目录下的startup.sh。如果我们想一个软件在任何位置都能运行就需要配置环境变量，比如jdk。获得jdk的安装包不能再使用官网上的url并执行wget url来获取，因为oracle的官方网站有限制。所以我们需要先下载jdk，再上传到服务器上。上传服务器之后解压即可。Linux配置环境变量时就是修改/etc/profile文件。JAVA_HOME指向解压的JDK目录。12export JAVA_HOME=/usr/jdk1.8.0_201export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH修改完配置文件后使用命令刷新：source /etc/profilerpmrpm是由红帽公司开发的软件包管理方式，使用rpm我们可以方便的进行软件的安装、查询、卸载、升级等工作。但是rpm软件包之间的依赖性问题往往会很繁琐，尤其是软件由多个rpm包组成时。一般过程：找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；打开一个终端，su 成root用户；cd soft.version.rpm所在的目录；输入rpm -ivh soft.version.rpmYumYum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。安装Mysql在centos7中一般默认安装了MariaDB。这是mysql的一个开源分支。为了避免这个分支对我们安装mariadb产生影响，我们先卸载这个东西：yum remove maria*。获得mysql5.7的Repository的rpm安装包：wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm安装rpm：yum -y install mysql57-community-release-el7-10.noarch.rpm。安装mysql：yum -y install mysql-community-server配置Mysqlmake安装解压执行“./configure”命令为编译做好准备；执行“make”命令进行软件编译；执行“make install”完成安装；执行“make clean”删除安装时产生的临时文件。Cmake安装CMake是一种跨平台编译工具，比make更为高级，使用起来要方便得多。CMake主要是编写CMakeLists.txt文件，然后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库（so，shared object）。因此CMake的编译基本就两个步骤：cmakemakecmake 指向CMakeLists.txt所在的目录，例如cmake .. 表示CMakeLists.txt在当前目录的上一级目录。cmake后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个新的目录，专门用来编译，例如12345mkdir buildcd buildcmake ..//等cmake结束makemake根据生成makefile文件，编译程序。]]></content>
       <categories>
         <category>Linux</category>
       </categories>
