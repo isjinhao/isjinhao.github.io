@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java8-Stream]]></title>
+    <url>%2F2019%2FJava8-Stream%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[lambda]]></title>
+    <url>%2F2019%2Flambda%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[requset的get开头无参方法测试]]></title>
+    <url>%2F2019%2Frequset%E7%9A%84get%E5%BC%80%E5%A4%B4%E6%97%A0%E5%8F%82%E6%96%B9%E6%B3%95%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[笔者一直都对request.get*()方法觉得迷惑，分不清返回的到底是什么东西。所以做个测试：12345678910111213141516171819202122232425262728293031323334353637383940414243444546package test;import java.io.IOException;import javax.servlet.ServletException;import javax.servlet.annotation.WebServlet;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;@WebServlet("/test")public class Test extends HttpServlet &#123; private static final long serialVersionUID = 1L; protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123; System.out.println(request.getRequestURL().toString()); System.out.println(request.getRequestURI().toString()); System.out.println(request.getServletPath()); System.out.println(request.getServerPort()); System.out.println(request.getScheme()); System.out.println(request.getRemoteUser()); System.out.println(request.getRemotePort()); System.out.println(request.getRemoteHost()); System.out.println(request.getRemoteAddr()); System.out.println(request.getQueryString()); System.out.println(request.getProtocol()); System.out.println(request.getPathTranslated()); System.out.println(request.getAuthType()); System.out.println(request.getCharacterEncoding()); System.out.println(request.getContentLength()); System.out.println(request.getContentLengthLong()); System.out.println(request.getContentType()); System.out.println(request.getContextPath()); System.out.println(request.getLocalAddr()); System.out.println(request.getLocalName()); System.out.println(request.getLocalPort()); System.out.println(request.getMethod()); System.out.println(request.getPathInfo()); &#125; protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123; // TODO Auto-generated method stub doGet(request, response); &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JavaWeb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[File和Path和Files]]></title>
+    <url>%2F2019%2FFile%E5%92%8CPath%E5%92%8CFiles%2F</url>
+    <content type="text"><![CDATA[File构造123456789public File(String filepath);绝对路径:以盘符开头的路径相对路径:相对当前项目的根目录public File(String parent, String child);public File(File parent,String child);public File(URI uri);123456789101112public class Demo1 &#123; public static void main(String[] args) &#123; File aFile; try &#123; aFile = new File(new URI("file:///https://isjinhao.github.io/2019/Maven%E5%9F%BA%E7%A1%80/%E4%BC%A0%E7%BB%9F%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91.png")); System.out.println(aFile.getName());// false &#125; catch (URISyntaxException e) &#123; e.printStackTrace(); &#125; &#125;&#125;获取方法123456789public String getAbsolutePath();//获取绝对路径public String getName();//获取当前File对象的名字public String getPath();//获取创建File对象时 传递的路径public long length();//获取表示文件的File对象的占用的字节数//如果是文件夹的File对象,返回目录本身的大小,不是目录及其所有孩子的大小创建和删除创建方法创建文件1public boolean createNewFile();//创建一个新的文件(只能是文件,不能是文件夹),返回是否创建成功创建文件夹1public boolean mkdir();//创建一个新的文件夹,返回是否创建成功判断方法判断File对象所表示的文件在OS中是否存在1public boolean exists(); //返回该File 对象是否存在判断是否是文件1public boolean isFile();//返回是否是文件判断是否是文件夹1public boolean isDirectory();//返回是否是文件夹删除方法1public boolean delete();//删除文件或者文件夹。可以删除的是单个文件,或者空文件夹File类的list和listFiles方法123public String[] list();public File[] listFiles();//只能列出当前文件夹下的一级子文件或者子文件夹文件过滤123456789101112131415161718192021222324252627package file;import java.io.File;import java.io.FileFilter;public class Demo2 &#123; public static void main(String[] args) &#123; File fileDir = new File("D:\\blog\\isjinhao\\source\\_posts\\04-进程管理"); //列出file下所有file对象 MyFileFilter ff = new MyFileFilter(); File[] files = fileDir.listFiles(ff); for (File file : files) &#123; System.out.println(file); &#125; &#125;&#125;class MyFileFilter implements FileFilter&#123; @Override public boolean accept(File pathname) &#123; String name = pathname.getName(); if(name.endsWith(".png") || name.endsWith(".PNG")) return true; return false; &#125;&#125;Path]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java-文件处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java-正则表达式]]></title>
     <url>%2F2019%2FJava-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[概述正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。但是上面的叙述，对于之前没有接触过正则表达式的人还是很迷，我们打个比方，有一串字符：123xyz234和一个模式：*^*，我们假设*表示任意长度的由数字组成的字符串，^表示任意长度的由英文字符表示的字符串，那么我们就可以说这个字符串能匹配上这个模式。因为123可以匹配上*，xyz可以匹配上^，234可以匹配上*。同样的，假如我们再有一个模式：*^，我们用这个模式在字符串中提取，可以提取出来：123、123x、123xyz、234 等等，但是不能提取出来z234、123xyz234。因为我们能提取出来的都是符合这个模式的，这个模式就是正则表达式。语法不同的语言在正则表达式上的语法是有差距的，但是相同点远远大于不同点。我们在这使用Java语言中正则表达式。不过正则表达式的语法非常难记，在这也是举例出一些常用的语法，具体使用还是得查文档。最简单的正则表达式在我们刚才的举例中可以看出正则表达式其实就是一种匹配规则，那么每个字符串也都是一种匹配规则（这种规则只能匹配其自身）。比如下面的split()方法是按照正则表达式把字符串分割，我们传入的一个字符串就是一个正则表达式。123456789101112public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "1234567890"; /** * Splits this string around matches of the given regular expression. */ String[] split = testStr.split("67"); //testStr中只有67能匹配split()方法中传入的67，所以按67进行分隔，同时67被删除 System.out.println(Arrays.deepToString(split)); &#125;&#125;和正则表达式有关的类虽然上个例子我们并没有使用到正则表达式相关的类，但这并不表明正则表达式就是一个字符串这么简单，在split()方法的内部还是调用了正则表达式相关的方法。123public String[] split(String regex) &#123; return split(regex, 0);&#125;Pattern类：一个Pattern表示一个正则表达式。Pattern 类没有公共构造方法。要创建一个 Pattern 对象，你必须首先调用其公共静态编译方法，它返回一个 Pattern 对象。该方法接受一个正则表达式字符串作为它的第一个参数。Matcher类：Matcher 对象是对输入字符串进行解释和匹配操作的引擎。与Pattern 类一样，Matcher 也没有公共构造方法。你需要调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。PatternSyntaxException：PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误。现在我们使用正则表达式有关的类来完成上面的例子：12345678910public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "1234567890"; Pattern pattern = Pattern.compile("67"); String[] split = pattern.split(testStr); System.out.println(Arrays.deepToString(split)); &#125;&#125;PatternSyntaxException 式一个异常类，但是不强制处理正则表达式的异常，所以这里可加可不加。Matcher的用法请继续看下去。匹配在上面我们测试的是正则表达式的分割作用，但是这并不是一个很好的学习正则表达式的例子。所以下面我们将采用匹配方法来学习正则表达式，先给一个小例子。123456789public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "1234567890"; boolean matches = Pattern.matches("67", testStr); System.out.println(matches); &#125;&#125;这里的输出结果肯定是false了，因为这是两个不同的字符串，自然无法被匹配。字符类[abc] ：a、b 或 c（简单类）[^abc] ：任何字符，除了 a、b 或 c（否定）[a-zA-Z] ：a 到 z 或 A 到 Z，两头的字母包括在内（范围）[a-d[m-p]] ：a 到 d 或 m 到 p：[a-dm-p]（并集）[a-z&amp;&amp;[def]] ：d、e 或 f（交集）[a-z&amp;&amp;[^bc]] ：a 到 z，除了 b 和 c：[ad-z]（减去）[a-z&amp;&amp;[^m-p]] ：a 到 z，而非 m 到 p：[a-lq-z]（减去）123456789public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "123"; Pattern.matches("[123][123][123]", testStr); //true Pattern.matches("[^123][123][123]", testStr); //false &#125;&#125;预定义字符类. ：任何字符（与行结束符可能匹配也可能不匹配）\d ：数字：[0-9]\D ：非数字： [^0-9]\s ：空白字符：[ \t\n\x0B\f\r]\S ：非空白字符：[^\s]\w ：单词字符：[a-zA-Z_0-9]\W ：非单词字符：[^\w]12345678public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "123"; System.out.println(Pattern.matches("\\d\\d\\d", testStr)); //true System.out.println(Pattern.matches("\\w\\w\\w", testStr)); //true &#125;&#125;数量词X?： X存在一次或一次也没有X* ：X存在零次或多次X+ ：X存在一次或多次X{n} ：X存在恰好 n 次X{n,} ：X存在至少 n 次X{n,m} ：X存在至少 n 次，但是不超过 m 次123456789public class RegTest &#123; public static void main(String[] args) &#123; String testStr = "123"; boolean matches = Pattern.matches("[123]&#123;3&#125;", testStr); //true System.out.println(matches); &#125;&#125;查找子串查找子串需要使用到Pattern和Mather[flid=1415279, ffid=BK-2898-20180922-A, frtt=20180922210700, frlt=20180923000300][flid=1417032, ffid=OD-689-20180923-D, fatt=2401, stat=BOR, ista=BOR]123456789101112131415public class RegTest &#123; public static final String FFID = "((ffid=)&#123;1&#125;)\\w&#123;2&#125;-\\w&#123;3,6&#125;-\\d&#123;8&#125;-\\w"; public static void main(String[] args) &#123; String str = "[flid=1415279, ffid=BK-2898-20180922-A, frtt=20180922210700, frlt=20180923000300][flid=1417032, ffid=OD-689-20180923-D, fatt=2401, stat=BOR, ista=BOR]"; Pattern pattern = Pattern.compile(FFID); Matcher matcher = pattern.matcher(str); //循环找出全部的匹配子串 while(matcher.find()) &#123; System.out.println(matcher.group(0)); &#125; &#125;&#125;//ffid=BK-2898-20180922-A//ffid=OD-689-20180923-Dmarcher.group()必须和find()方法配合使用，也就是说find()是真正在字符串中搜索模式的方法（搜索到返回真，否则返回假），但是marcher.group()是将其输出的方法。组在正则表达式中，每个小括号()括起来的一个子模式是一个组，如(&quot;W(or)(ld!)&quot;中，有两个组or和ld!。在我们方才的例子中，matcher.group(0)的0指的就是matcher关联的模式，但是如果是matcher.group(1)指的就是(ffid=)。12345678910111213141516public class Demo1 &#123; public static final String FFID = "((ffid=)&#123;1&#125;)\\w&#123;2&#125;-\\w&#123;3,6&#125;-\\d&#123;8&#125;-\\w"; public static void main(String[] args) &#123; String str = "[flid=1415279, ffid=BK-2898-20180922-A, frtt=20180922210700, frlt=20180923000300][flid=1417032, ffid=OD-689-20180923-D, fatt=2401, stat=BOR, ista=BOR]"; Pattern pattern = Pattern.compile(FFID); Matcher matcher = pattern.matcher(str); //循环找出全部的匹配子串 System.out.println(matcher.groupCount()); while(matcher.find()) &#123; System.out.println(matcher.group(1)); &#125; &#125;&#125;//flid=//flid=正在表达式实例https://www.cnblogs.com/fozero/p/7868687.html。]]></content>
@@ -51,17 +86,6 @@
         <tag>Java</tag>
         <tag>JavaWeb</tag>
         <tag>项目构建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Java-Path和Files]]></title>
-    <url>%2F2019%2FJava-Path%E5%92%8CFiles%2F</url>
-    <content type="text"><![CDATA[FilePath和Files都是Java 7中出现的新]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
