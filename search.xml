@@ -150,6 +150,14 @@
     <title><![CDATA[Java-NIO]]></title>
     <url>%2F2019%2FJava-NIO%2F</url>
     <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java网络编程</tag>
+        <tag>Java-NIO</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java-网络编程]]></title>
