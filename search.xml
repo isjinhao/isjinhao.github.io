@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[kettle花式设置参数]]></title>
-    <url>%2F2019%2Fkettle%E8%8A%B1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[kettle的基本使用]]></title>
+    <url>%2F2019%2Fkettle%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[最近实习被公司安排用kettle处理数据，所以写一篇记录一下kettle的基本使用方法。SQL1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586SELECT K.EQUIP_ID AS STATIONIDX, K.NAME AS STATIONNAME, STA_DAY, ISNULL( STANUM, 0 ), ISNULL( SPACENUM, 0 ), ISNULL( SIGNALNUM, 0 ), FNUM FROM ( SELECT A.STATIONIDX, B.STATIONNAME, &#123;3&#125; AS STA_DAY, SUM( CASE WHEN RESTRAIN_FLAG = 0 OR RESTRAIN_FLAG IS NULL THEN 1 ELSE 0 END ) AS NNUM, SUM( CASE WHEN RESTRAIN_FLAG = 0 OR RESTRAIN_FLAG IS NULL THEN 0 ELSE 1 END ) AS FNUM FROM MONITORSIGNAL.TBSIGNALBASIS_SX_&#123;&#123;2&#125;&#125; A /* 变量参数 + 循环*/ JOIN MONITORSIGNAL.TBSTATION_SX B ON A.STATIONIDX = B.STATIONIDX WHERE SIGNAL_TIME &gt;= &#123; 3 &#125; /* 占位参数 */ AND SIGNAL_TIME &lt; &#123; 4 &#125; GROUP BY A.STATIONIDX, B.STATIONNAME ) M LEFT JOIN ( SELECT st_id, count( * ) AS SPACENUM FROM ESDC_ODS.D5000_HISDB_OP_DEV_SX A JOIN MONITORSIGNAL.TBSTATION_SX B ON A.st_id = B.STATIONIDX WHERE OCCUR_TIME &gt;= &#123; 3 &#125; AND OCCUR_TIME &lt; &#123; 4 &#125; AND STATUS = 1 GROUP BY st_id ) N ON M.stationidx = N.st_id LEFT JOIN ( SELECT st_id, SUM( CASE WHEN STATUS = 19 THEN 1 ELSE 0 END ) AS STANUM, SUM( CASE WHEN STATUS = 7 THEN 1 ELSE 0 END ) AS SIGNALNUM FROM ESDC_ODS.D5000_HISDB_OP_YX_SX WHERE OCCUR_TIME &gt;= &#123; 3 &#125; AND OCCUR_TIME &lt; &#123; 4 &#125; AND (STATUS = 7 OR STATUS = 19) GROUP BY st_id ) O ON M.STATIONIDX = O.st_id JOIN ( SELECT DISTINCT EMS_EQUIP_ID, EQUIP_ID, NAME FROM SG_THEME.D5000_EMS_EQUIP_MAPPING I JOIN SG_THEME.SG_CON_SUBSTATION_B D ON I.EQUIP_ID = D.ID WHERE I.LX = 'SG_CON_SUBSTATION_B' ) K ON K.EMS_EQUIP_ID = M.STATIONIDX这个sql是真实业务场景下的一句SQL，emmm，比较长，但是很有代表性。下面就以这个sql解释知识点。基本知识union、连接、分组的字段必须在连接之时是按照升序排序的。按字符串处理之前必须是String类型，如果不是可以使用字段选择进行转换类型。记录集连接是两个表之间的连接，如果需要多个表做一个条件的连接使用multiway merge join。数字类型和字符串类型做连接时可能会出错，需要将转换数据类型后再做连接。JS脚本有些需要使用到处理的语句需要使用JS进行处理，比如上面的1CASE WHEN RESTRAIN_FLAG = 0 OR RESTRAIN_FLAG IS NULL THEN 1 ELSE 0 END ) AS NNUM从上一步获得的输入可以在JS中直接使用，但是一定要注意数据类型对不对，虽然JS是弱类型，但是最好还是在使用时处理一下，比如使用&#39;&#39;+XXX进行转字符串，在做其他操作。在脚本中用var定义的变量可以在下方的字段中被获取，获取之后就能作为输出字段输出。记住：JS脚本的执行过程是将上一步输入的每一行都使用执行一遍JS，然后将每次执行后的结果合并。占位参数如果某个表（设为A）输入的SQL语句需要使用使用其他表的数据，我们可以在其之前加上一个表（设为B），将B表的数据输入到A表中。此时需要使用到占位参数。B表：1234SELECT *,? as d3,? as d4 FROM MONITORSIGNAL.TBSIGNALBASIS_SX_2019_01 A WHERE SIGNAL_TIME &gt;= ?AND SIGNAL_TIME &lt; ? ORDER BY STATIONIDX;A表：1234567select lastexectime as STA_DAY, lastexectime + numtodsinterval(intervalvalue, 'minute') as D41, lastexectime as D32, lastexectime + numtodsinterval(intervalvalue, 'minute') as D42 from monitorsignal.tbdataetlconfig占位参数是按顺序匹配。两者的执行关系是：B表拿出每一行带入A表，A表依次执行，得到的所有数据在做合并拼接。变量参数占位参数的弊端是使用完就没了，上面所示的A表获得的四个字段在B表使用之后丢失，B表再传出的是其处理后的数据。所以如果我们需要跨几个操作使用就需要用到变量参数。变量的设置方式：上图所示实在自定义常量数据中定义了一个数据，JS处理之后设置为变量，实际上不使用JS处理也可以直接设置为变量。循环我们有时候需要做循环，比如再使用子表的时候，我们会对每个月的子表的分别就进行操作。这样就需要做一个循环，循环中只改变子表名。设置一个转换来获取变量，比如从表中查一列。并且放在结果中，这个结果个人理解就是一个缓冲区，别的转换能从这个结果中拿数据。在处理的时候再一行一行的拿数据。转换中需要设置一个阻塞，保证再使用到变量的时候此变量已被初始化。]]></content>
+      <categories>
+        <category>kettle</category>
+      </categories>
+      <tags>
+        <tag>kettle</tag>
+        <tag>etl</tag>
+      </tags>
   </entry>
   <entry>
     <title></title>
